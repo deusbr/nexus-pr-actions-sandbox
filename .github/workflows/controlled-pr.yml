@@ -1,0 +1,11 @@
+name: Controlled PR smoke test
+on: pull_request
+permissions: {}
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Check synthetic arithmetic
+        shell: bash
+        run: test "$((2 + 2))" -eq 4
